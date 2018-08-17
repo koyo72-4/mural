@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Mural</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Hello Mural</h1>
+    <div id="squares-div">
+    </div>
+    <form method="POST" action="/images">
+        <label for="what-is-the-image-src">What is the the image src?</label>
+        <input type="text" id="what-is-the-image-src" name="src" />
+        <input type="submit" />
+    </form>
+
+    <script>
+        fetch('/images')
+            .then(response => response.json())
+            .then(images => {
+                buildGrid(images.length);
+
+                images.forEach((image, index) => {
+                    let img = document.createElement('img');
+                    img.setAttribute('src', image.src);
+                    img.setAttribute('alt', 'user-selected image');
+                    let imageSquare = document.getElementById('square' + index);
+                    imageSquare.appendChild(img);
+                });
+            });
+
+        function buildGrid(numberOfSquares) {
+            let gridArray = [];
+            for (let i = 0; i < numberOfSquares; i++) {
+                let square = document.createElement('div');
+                square.classList.add('square');
+                square.id = 'square' + i;
+                gridArray.push(square);
+            }
+            
+            let row1 = document.createElement('div');
+            row1.classList.add('row');
+            let row2 = document.createElement('div');
+            row2.classList.add('row');
+
+            for (let i = 0; i < Math.ceil(numberOfSquares / 2); i++) {
+                row1.appendChild(gridArray[i]);
+            }
+            for (let i = Math.ceil(numberOfSquares / 2); i < numberOfSquares; i++) {
+                row2.appendChild(gridArray[i]);
+            }
+            
+            let grid = document.createElement('div');
+            grid.appendChild(row1);
+            grid.appendChild(row2);
+            document.getElementById('squares-div').appendChild(grid);
+        }
+        
+    </script>
+
+
+
+
+</body>
+
+</html>
