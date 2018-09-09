@@ -4,8 +4,7 @@ h1 {
 
 #squares-div {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     margin: 0 auto;
     width: 400px;
     padding: 5px;
@@ -13,16 +12,17 @@ h1 {
 
 .row {
     display: flex;
+    flex-direction: column;
 }
 
 .square {
-    width: 100px;
-    height: 100px;
+    width: 160px;
+    height: 160px;
+    padding: 10px;
     border: 3px solid blue;
 }
 
 img {
-    margin: 20px;
     width: 100px;
     height: auto;
 }
