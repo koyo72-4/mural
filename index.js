@@ -46,7 +46,7 @@ app.post('/images', upload.array(), (req, res) => {
     });
 });
 
-let db_uri = process.env.MONGODB_URI || 'mongodb://localhost:27017';
+let db_uri = process.env.MONGO_URL || 'mongodb://localhost:27017';
 
 MongoClient.connect(db_uri, { useNewUrlParser: true }, (error, client) => {
 
