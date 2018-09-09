@@ -9,15 +9,10 @@ h1 {
     width: 90%;
 }
 
-/* .row {
-    display: flex;
-    flex-direction: column;
-} */
-
 .square {
     width: 160px;
     height: 160px;
-    padding: 10px;
+    padding: 5px;
     border: 3px solid blue;
     display: flex;
     justify-content: center;
@@ -25,10 +20,10 @@ h1 {
 }
 
 img {
-    width: 100px;
+    width: 130px;
     height: auto;
 }
 
 form {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
