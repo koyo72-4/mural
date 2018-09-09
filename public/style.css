@@ -4,7 +4,7 @@ h1 {
 
 #squares-div {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     flex-flow: row wrap;
     margin: 0 auto;
     width: 90%;

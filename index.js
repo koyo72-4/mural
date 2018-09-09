@@ -41,7 +41,9 @@ app.get('/images', (req, res) => {
 });
 
 app.post('/images', upload.array(), (req, res) => {
-    imageStore.addImage(req.body, () => {
+    let imageObject = req.body;
+    imageObject.createdAt = Date.now();
+    imageStore.addImage(imageObject, () => {
         res.redirect('/');
     });
 });
