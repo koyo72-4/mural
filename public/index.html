@@ -9,13 +9,13 @@
 
 <body>
     <h1>Hello Mural</h1>
-    <div id="squares-div">
-    </div>
     <form method="POST" action="/images">
         <label for="what-is-the-image-src">What is the image src?</label>
         <input type="text" id="what-is-the-image-src" name="src" />
         <input type="submit" />
     </form>
+    <div id="squares-div">
+    </div>
 
     <script>
         fetch('/images')
@@ -33,31 +33,40 @@
             });
 
         function buildGrid(numberOfSquares) {
-            let gridArray = [];
             for (let i = 0; i < numberOfSquares; i++) {
                 let square = document.createElement('div');
                 square.classList.add('square');
                 square.id = 'square' + i;
-                gridArray.push(square);
+                document.getElementById('squares-div').appendChild(square);
             }
-            
-            let row1 = document.createElement('div');
-            row1.classList.add('row');
-            let row2 = document.createElement('div');
-            row2.classList.add('row');
+        }    
 
-            for (let i = 0; i < Math.ceil(numberOfSquares / 3); i++) {
-                row1.appendChild(gridArray[i]);
-            }
-            for (let i = Math.ceil(numberOfSquares / 3); i < numberOfSquares; i++) {
-                row2.appendChild(gridArray[i]);
-            }
+        // function buildGrid(numberOfSquares) {
+        //     let gridArray = [];
+        //     for (let i = 0; i < numberOfSquares; i++) {
+        //         let square = document.createElement('div');
+        //         square.classList.add('square');
+        //         square.id = 'square' + i;
+        //         gridArray.push(square);
+        //     }
             
-            let grid = document.createElement('div');
-            grid.appendChild(row1);
-            grid.appendChild(row2);
-            document.getElementById('squares-div').appendChild(grid);
-        }
+        //     let row1 = document.createElement('div');
+        //     row1.classList.add('row');
+        //     let row2 = document.createElement('div');
+        //     row2.classList.add('row');
+
+        //     for (let i = 0; i < Math.ceil(numberOfSquares / 3); i++) {
+        //         row1.appendChild(gridArray[i]);
+        //     }
+        //     for (let i = Math.ceil(numberOfSquares / 3); i < numberOfSquares; i++) {
+        //         row2.appendChild(gridArray[i]);
+        //     }
+            
+        //     let grid = document.createElement('div');
+        //     grid.appendChild(row1);
+        //     grid.appendChild(row2);
+        //     document.getElementById('squares-div').appendChild(grid);
+        // }
         
     </script>
 
