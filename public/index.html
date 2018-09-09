@@ -46,10 +46,10 @@
             let row2 = document.createElement('div');
             row2.classList.add('row');
 
-            for (let i = 0; i < Math.ceil(numberOfSquares / 5); i++) {
+            for (let i = 0; i < Math.ceil(numberOfSquares / 3); i++) {
                 row1.appendChild(gridArray[i]);
             }
-            for (let i = Math.ceil(numberOfSquares / 5); i < numberOfSquares; i++) {
+            for (let i = Math.ceil(numberOfSquares / 3); i < numberOfSquares; i++) {
                 row2.appendChild(gridArray[i]);
             }
             
