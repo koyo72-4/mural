@@ -9,16 +9,6 @@ let db;
 var multer = require('multer');
 var upload = multer();
 
-// let images = [
-//     {src: 'animal.jpg'},
-//     {src: 'winter-hunting-dog.jpg'},
-//     {src: 'cat-crossed-legs.jpg'},
-//     {src: 'Labrador_Chocolate.jpg'},
-//     {src: 'purple-pattern.jpg'},
-//     {src: 'Wreath_icon.png'},
-// ];
-// {src: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Creative-Tail-Animal-dog.svg'}
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
