@@ -4,15 +4,14 @@ h1 {
 
 #squares-div {
     display: flex;
-    /* justify-content: center; */
     flex-flow: row wrap;
     margin: 0 auto;
     width: 90%;
 }
 
 .square {
-    width: 160px;
-    height: 160px;
+    width: 200px;
+    height: 200px;
     padding: 5px;
     border: 3px solid blue;
     display: flex;
@@ -21,10 +20,10 @@ h1 {
 }
 
 img {
-    width: 130px;
+    width: 160px;
     height: auto;
 }
 
 form {
-    margin-bottom: 40px;
+    margin: 40px;
 }

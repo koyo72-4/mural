@@ -54,7 +54,7 @@ app.post('/reset', (req, res) => {
     });
 });
 
-let db_uri = process.env.MONGODB_URI || 'mongodb://localhost:27017';
+let db_uri = /*process.env.MONGODB_URI ||*/ 'mongodb://localhost:27017';
 
 MongoClient.connect(db_uri, { useNewUrlParser: true }, (error, client) => {
 

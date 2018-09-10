@@ -13,6 +13,11 @@ module.exports = [
     {
         src: 'https://upload.wikimedia.org/wikipedia/commons/2/27/Black_white_cats.jpg',
         createdAt: new Date('September 6, 2018 12:32:05:123')
+    },
+
+    {
+        src: 'https://images.pexels.com/photos/33053/dog-young-dog-small-dog-maltese.jpg?cs=srgb&dl=animal-dog-maltese-33053.jpg&fm=jpg',
+        createdAt: new Date('September 6, 2018 12:33:05:123')
     }
 
 ];
