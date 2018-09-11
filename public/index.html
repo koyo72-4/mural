@@ -10,15 +10,26 @@
 <body>
     <h1>Mural</h1>
     <form method="POST" action="/images">
-        <label for="what-is-the-image-src">What is the image src?</label>
+        <label for="what-is-the-image-src">What is the image's URL?</label>
         <input type="text" id="what-is-the-image-src" name="src" />
-        <input type="submit" />
+        <div>
+            <span>What should the image's border color be?</span>
+            <input type="radio" id="red" name="borderColor" value="red" checked>
+            <label for="red">Red</label>
+            <input type="radio" id="green" name="borderColor" value="green">
+            <label for="green">Green</label>
+            <input type="radio" id="blue" name="borderColor" value="blue">
+            <label for="blue">Blue</label>
+        </div>
+        <div>
+            <input type="submit" />
+        </div>
     </form>
     <div id="squares-div">
     </div>
-    <!-- <form method="POST" action= "/reset">
+    <form method="POST" action= "/reset">
         <input type="submit" name="reset" value="Reset" />
-    </form> -->
+    </form>
 
     <script>
         fetch('/images')
@@ -31,9 +42,13 @@
                     img.setAttribute('src', image.src);
                     img.setAttribute('alt', 'user-selected image');
                     let imageSquare = document.getElementById('square' + index);
+                    imageSquare.style.borderColor = image.borderColor;
                     imageSquare.appendChild(img);
+                    eventListenersForSquares(image, imageSquare);
                 });
             });
+        
+
 
         function buildGrid(numberOfSquares) {
             for (let i = 0; i < numberOfSquares; i++) {
@@ -42,7 +57,31 @@
                 square.id = 'square' + i;
                 document.getElementById('squares-div').appendChild(square);
             }
-        }    
+        }
+        
+        function eventListenersForSquares(image, imageSquare) {
+            imageSquare.addEventListener('mouseover', () => {
+                imageSquare.style.backgroundColor = image.borderColor.replace(/(rgb\(\d+, \d+, \d+,) 1\)/, '$1 0.5)');
+            });
+
+            imageSquare.addEventListener('mouseleave', () => {
+                imageSquare.style.backgroundColor = 'white';
+                let colorButtons = document.getElementsByClassName('colorButton');
+                for (let button of colorButtons) {
+                    button.remove();
+                }
+            });
+
+            imageSquare.addEventListener('click', addColorButton);
+
+            function addColorButton() {
+                imageSquare.insertAdjacentHTML('afterbegin', '<button class="colorButton" onclick="changeColor()">Click here to change border color</button>');
+            }
+        }
+
+        function changeColor() {
+
+        }
         
     </script>
 

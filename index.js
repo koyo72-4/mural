@@ -38,6 +38,12 @@ app.post('/images', upload.array(), (req, res) => {
     });
 });
 
+app.post('/color', upload.array(), (req, res) => {
+    imageStore.addImage(imageObject, () => {
+        res.redirect('/');
+    });
+});
+
 app.post('/reset', (req, res) => {
     imageStore.reset(()=>{
         res.redirect('/')

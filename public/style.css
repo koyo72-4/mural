@@ -2,6 +2,10 @@ h1 {
     text-align: center;
 }
 
+form div {
+    margin-top: 15px;
+}
+
 #squares-div {
     display: flex;
     flex-flow: row wrap;
@@ -13,10 +17,11 @@ h1 {
     width: 200px;
     height: 200px;
     padding: 5px;
-    border: 3px solid blue;
+    border: 5px solid;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 img {
@@ -26,4 +31,10 @@ img {
 
 form {
     margin: 40px;
+}
+
+.colorButton {
+    position: absolute;
+    top: 0px;
+    border: 1px solid black;
 }
