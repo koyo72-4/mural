@@ -1,10 +1,19 @@
-h1 {
-    text-align: center;
+body {
+    font-family: 'Montserrat', sans-serif;
 }
 
-form div {
-    margin-top: 15px;
+h1 {
+    text-align: center;
+    margin-top: 10px;
 }
+
+h3 {
+    font-weight: 400;
+}
+
+/* form div {
+    margin-top: 15px;
+} */
 
 #squares-div {
     display: flex;
