@@ -41,13 +41,27 @@ function eventListenersForSquares(image, imageSquare) {
     imageSquare.addEventListener('click', addColorButton);
 
     function addColorButton() {
-        let button = document.createElement('button');
-        button.classList.add('colorButton');
-        button.textContent = 'Click here to change border color';
-        button.addEventListener('click', function() {
-            changeColor(image);
-        });
-        imageSquare.appendChild(button);
+        if (hasColorButton(imageSquare)) {
+            return;
+        } else {
+            let button = document.createElement('button');
+            button.classList.add('colorButton');
+            button.textContent = 'Click here to change border color';
+            button.addEventListener('click', function() {
+                changeColor(image);
+            });
+            imageSquare.appendChild(button);
+        }
+    }
+}
+
+function hasColorButton(imageSquare) {
+    let childElements = Array.from(imageSquare.childNodes);
+    let childElementTags = childElements.map(element => element.nodeName);
+    if (childElementTags.includes('BUTTON')) {
+        return true;
+    } else {
+        return false;
     }
 }
 
