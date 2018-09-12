@@ -18,33 +18,35 @@
 
 <body>
     <h1>Mural</h1>
-    <form method="POST" action="/images">
-        <h3>Add an image</h3>
 
-        <div class="form-group">
-            <label for="what-is-the-image-src">What is the image's URL?</label>
-            <input type="text" class="form-control" id="what-is-the-image-src" name="src" />
-        </div>
-
-        <div>
-            <p>What should the image's border color be?</p>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="red" value="rgba(255, 0, 0, 1)" checked>
-                <label class="form-check-label" for="red">Red</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="green" value="rgba(0, 255, 0, 1)">
-                <label class="form-check-label" for="green">Green</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="blue" value="rgba(0, 0, 255, 1)">
-                <label class="form-check-label" for="blue">Blue</label>
+    <div id="form-div">
+        <form method="POST" action="/images">
+            <h3>Add an image</h3>
+            <div class="form-group">
+                <label for="what-is-the-image-src">What is the image's URL?</label>
+                <input type="text" class="form-control" id="what-is-the-image-src" name="src" />
             </div>
-        </div>
-        <div>
-            <button class="btn" type="submit">Submit</button>
-        </div>
-    </form>
+            <div>
+                <p>What should the image's border color be?</p>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="red" value="rgba(255, 0, 0, 1)" name="borderColor" checked>
+                    <label class="form-check-label" for="red">Red</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="green" value="rgba(0, 255, 0, 1)" name="borderColor">
+                    <label class="form-check-label" for="green">Green</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="blue" value="rgba(0, 0, 255, 1)" name="borderColor">
+                    <label class="form-check-label" for="blue">Blue</label>
+                </div>
+            </div>
+            <div>
+                <button class="btn" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
     <div id="squares-div">
     </div>
 
