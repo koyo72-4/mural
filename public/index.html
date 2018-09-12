@@ -14,11 +14,11 @@
         <input type="text" id="what-is-the-image-src" name="src" />
         <div>
             <span>What should the image's border color be?</span>
-            <input type="radio" id="red" name="borderColor" value="red" checked>
+            <input type="radio" id="red" name="borderColor" value="rgba(255, 0, 0, 1)" checked>
             <label for="red">Red</label>
-            <input type="radio" id="green" name="borderColor" value="green">
+            <input type="radio" id="green" name="borderColor" value="rgba(0, 255, 0, 1)">
             <label for="green">Green</label>
-            <input type="radio" id="blue" name="borderColor" value="blue">
+            <input type="radio" id="blue" name="borderColor" value="rgba(0, 0, 255, 1)">
             <label for="blue">Blue</label>
         </div>
         <div>
@@ -33,23 +33,37 @@
 
     <script>
         fetch('/images')
-            .then(response => response.json())
-            .then(images => {
-                buildGrid(images.length);
+        .then(response => response.json())
+        .then(displayImagesInSquares);
 
-                images.forEach((image, index) => {
-                    let img = document.createElement('img');
-                    img.setAttribute('src', image.src);
-                    img.setAttribute('alt', 'user-selected image');
-                    let imageSquare = document.getElementById('square' + index);
-                    imageSquare.style.borderColor = image.borderColor;
-                    imageSquare.appendChild(img);
-                    eventListenersForSquares(image, imageSquare);
-                });
+        // .then(images => {
+        //     buildGrid(images.length);
+
+        //     images.forEach((image, index) => {
+        //         let img = document.createElement('img');
+        //         img.setAttribute('src', image.src);
+        //         img.setAttribute('alt', 'user-selected image');
+        //         let imageSquare = document.getElementById('square' + index);
+        //         imageSquare.style.borderColor = image.borderColor;
+        //         imageSquare.appendChild(img);
+        //         eventListenersForSquares(image, imageSquare);
+        //     });
+        // });
+
+        function displayImagesInSquares(images) {
+            buildGrid(images.length);
+
+            images.forEach((image, index) => {
+                let img = document.createElement('img');
+                img.setAttribute('src', image.src);
+                img.setAttribute('alt', 'user-selected image');
+                let imageSquare = document.getElementById('square' + index);
+                imageSquare.style.borderColor = image.borderColor;
+                imageSquare.appendChild(img);
+                eventListenersForSquares(image, imageSquare);
             });
+        }
         
-
-
         function buildGrid(numberOfSquares) {
             for (let i = 0; i < numberOfSquares; i++) {
                 let square = document.createElement('div');
@@ -61,7 +75,7 @@
         
         function eventListenersForSquares(image, imageSquare) {
             imageSquare.addEventListener('mouseover', () => {
-                imageSquare.style.backgroundColor = image.borderColor.replace(/(rgb\(\d+, \d+, \d+,) 1\)/, '$1 0.5)');
+                imageSquare.style.backgroundColor = image.borderColor.replace(/(rgba\(\d+, \d+, \d+,) 1\)/, '$1 0.5)');
             });
 
             imageSquare.addEventListener('mouseleave', () => {
@@ -75,12 +89,31 @@
             imageSquare.addEventListener('click', addColorButton);
 
             function addColorButton() {
-                imageSquare.insertAdjacentHTML('afterbegin', '<button class="colorButton" onclick="changeColor()">Click here to change border color</button>');
+                imageSquare.insertAdjacentHTML('afterbegin', `<button class="colorButton" onclick="changeColor(${image})">Click here to change border color</button>`);
             }
         }
 
-        function changeColor() {
+        function changeColor(image) {
+            let colors = [
+                'rgba(255, 0, 0, 1)', 
+                'rgba(0, 255, 0, 1)',
+                'rgba(0, 0, 255, 1)'   
+            ];
+            let currentColorIndex = colors.indexOf(image.borderColor);
+            let nextColor = colors[(currentColorIndex + 1) % colors.length];
 
+            let params = new URLSearchParams();
+            params.append('imageId', image['_id']);
+            params.append('color', nextColor);
+
+            console.log('params:', params);
+
+            fetch('/color', {
+                method: 'POST',
+                body: params
+            })
+            .then(response => response.json())
+            .then(displayImagesInSquares);
         }
         
     </script>

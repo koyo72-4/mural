@@ -39,7 +39,9 @@ app.post('/images', upload.array(), (req, res) => {
 });
 
 app.post('/color', upload.array(), (req, res) => {
-    imageStore.addImage(imageObject, () => {
+    let imageId = req.body.imageId;
+    let color = req.body.color;
+    imageStore.updateColor(imageId, color, () => {
         res.redirect('/');
     });
 });
