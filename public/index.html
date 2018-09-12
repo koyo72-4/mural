@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Mural</title>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
     <link href="style.css" type="text/css" rel="stylesheet">
 </head>
 
@@ -35,20 +36,6 @@
         fetch('/images')
         .then(response => response.json())
         .then(displayImagesInSquares);
-
-        // .then(images => {
-        //     buildGrid(images.length);
-
-        //     images.forEach((image, index) => {
-        //         let img = document.createElement('img');
-        //         img.setAttribute('src', image.src);
-        //         img.setAttribute('alt', 'user-selected image');
-        //         let imageSquare = document.getElementById('square' + index);
-        //         imageSquare.style.borderColor = image.borderColor;
-        //         imageSquare.appendChild(img);
-        //         eventListenersForSquares(image, imageSquare);
-        //     });
-        // });
 
         function displayImagesInSquares(images) {
             buildGrid(images.length);
@@ -89,7 +76,13 @@
             imageSquare.addEventListener('click', addColorButton);
 
             function addColorButton() {
-                imageSquare.insertAdjacentHTML('afterbegin', `<button class="colorButton" onclick="changeColor(${image})">Click here to change border color</button>`);
+                let button = document.createElement('button');
+                button.classList.add('colorButton');
+                button.textContent = 'Click here to change border color';
+                button.addEventListener('click', function() {
+                    changeColor(image);
+                });
+                imageSquare.appendChild(button);
             }
         }
 
@@ -106,14 +99,15 @@
             params.append('imageId', image['_id']);
             params.append('color', nextColor);
 
-            console.log('params:', params);
-
             fetch('/color', {
                 method: 'POST',
                 body: params
             })
             .then(response => response.json())
-            .then(displayImagesInSquares);
+            .then(images => {
+                document.getElementById('squares-div').innerHTML = '';
+                displayImagesInSquares(images);
+            });
         }
         
     </script>
