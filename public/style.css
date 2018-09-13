@@ -34,8 +34,12 @@ h1 {
 
 #form-row {
     margin: 20px 40px 0 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 #form-div {
@@ -71,9 +75,15 @@ button[type="submit"] {
 }
 
 #mural-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 #mural-div .background-square {
@@ -93,9 +103,14 @@ button[type="submit"] {
 }
 
 #squares-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     margin: 15px 40px 40px 40px;
 }
 
@@ -111,9 +126,15 @@ button[type="submit"] {
     height: 100%;
     padding: 5px;
     border: 5px solid;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     position: relative;
     overflow: hidden;
 }
@@ -164,14 +185,18 @@ from https://cssgradientbutton.com/?bg0=FFFFFF&bg1=CFCFCF&bg2=EEEEEE&bg3=C7C7C7&
         width: 90%;
     }
     #mural-div {
-        align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     }
     #mural-div .background-square {
         height: 175px;
         width: 219px;
     }
     #squares-div {
-        justify-content: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     }
 }
 
