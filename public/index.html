@@ -19,14 +19,15 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid" id="container">
         <div class="row">
             <div class="col-12 col-sm-12" id="header-div">
                 <h1>Mural</h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-10 col-sm-6 col-md-4" id="form-div">
+        <div class="row" id="form-row">
+            <!-- <div class="col-10 col-sm-6 col-md-4" id="form-div"> -->
+            <div id="form-div">
                 <form method="POST" action="/images">
                     <h3>Add an image</h3>
                     <div class="form-group">
@@ -53,7 +54,8 @@
                     </div>
                 </form>
             </div>
-            <div class="col-sm-4 col-md-7" id="mural-div">
+            <!-- <div class="col-sm-4 col-md-7" id="mural-div"> -->
+            <div id="mural-div">
                 <div class="background-square">
                     <div class="square">
                         <img src="mural.jpg" alt="a colorful mural" />
@@ -62,13 +64,15 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-10 col-sm-10" id="click-div">
+            <!-- <div class="col-10 col-sm-10" id="click-div"> -->
+            <div id="click-div">
                 <p>Click an image to change its border color</p>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-12 col-sm-12">
+            <!-- <div class="col-12 col-sm-12"> -->
+            <div>
                 <div id="squares-div">
                 </div>
             </div>

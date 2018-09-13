@@ -13,6 +13,14 @@ body {
     background-color: rgba(255, 255, 224, 1);
 }
 
+#container {
+    padding: 0;
+}
+
+div.row {
+    margin: 0;
+}
+
 #header-div {
     background-color: rgba(230, 230, 250, 1);
     text-align: center;
@@ -24,8 +32,15 @@ h1 {
     font-size: 2.8rem;
 }
 
+#form-row {
+    margin: 20px 40px 0 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
 #form-div {
-    margin: 10px 10px 0 40px;
+    padding: 0;
+    margin: 0 20px 0 0;
     font-size: 1rem;
 }
 
@@ -51,7 +66,8 @@ button[type="submit"] {
 
 #click-div {
     font-weight: 700;
-    margin: 25px 10px 0 40px;
+    margin: 25px 0 0 40px;
+    padding: 0;
 }
 
 #mural-div {
@@ -64,6 +80,7 @@ button[type="submit"] {
     height: 220px;
     width: 275px;
     box-shadow: 7px 7px rgba(0, 0, 255, 0.5);
+    margin-right: 7px;
 }
 
 #mural-div .square {
@@ -78,13 +95,15 @@ button[type="submit"] {
 #squares-div {
     display: flex;
     flex-flow: row wrap;
-    margin: 15px 10px 40px 40px;
+    justify-content: space-between;
+    margin: 15px 40px 40px 40px;
 }
 
 .background-square {
     width: 250px;
     height: 250px;
     background-color: rgba(255, 255, 255, 1);
+    margin-bottom: 15px;
 }
 
 .square {
