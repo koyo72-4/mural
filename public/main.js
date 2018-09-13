@@ -12,20 +12,23 @@ function displayImagesInSquares(images) {
         let imageSquare = document.getElementById('square' + index);
         imageSquare.style.borderColor = image.borderColor;
         imageSquare.appendChild(img);
-        eventListenersForSquares(image, imageSquare);
+        eventListenersForSquare(imageSquare, image);
     });
 }
 
 function buildGrid(numberOfSquares) {
     for (let i = 0; i < numberOfSquares; i++) {
+        let backgroundSquare = document.createElement('div');
+        backgroundSquare.classList.add('background-square');
         let square = document.createElement('div');
         square.classList.add('square');
         square.id = 'square' + i;
-        document.getElementById('squares-div').appendChild(square);
+        backgroundSquare.appendChild(square);
+        document.getElementById('squares-div').appendChild(backgroundSquare);
     }
 }
 
-function eventListenersForSquares(image, imageSquare) {
+function eventListenersForSquare(imageSquare, image) {
     imageSquare.addEventListener('mouseover', () => {
         imageSquare.style.backgroundColor = image.borderColor.replace(/(rgba\(\d+, \d+, \d+,) 1\)/, '$1 0.5)');
     });
@@ -46,7 +49,8 @@ function eventListenersForSquares(image, imageSquare) {
         } else {
             let button = document.createElement('button');
             button.classList.add('colorButton');
-            button.textContent = 'Click here to change border color';
+            button.classList.add('btn');
+            button.textContent = 'Change border color';
             button.addEventListener('click', function() {
                 changeColor(image);
             });

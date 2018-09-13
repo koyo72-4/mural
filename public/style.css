@@ -1,30 +1,68 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
+    color: rgba(0, 0, 255, 1);
+    background-color: rgba(255, 255, 224, 1);
+}
+
+#header-div {
+    background-color: rgba(230, 230, 250, 1);
+    text-align: center;
 }
 
 h1 {
-    text-align: center;
-    margin-top: 10px;
+    margin: 10px 0 10px 0;
+    font-family: 'Pacifico', cursive;
+    font-size: 50px;
+}
+
+#form-div {
+    margin: 10px 10px 0 40px;
+    font-size: 18px;
+}
+
+#form-div p {
+    margin-bottom: 6px;
 }
 
 h3 {
-    font-weight: 400;
+    font-weight: 700;
+    color: rgba(0, 0, 255, 1);
+    font-size: 20px;
+    margin-bottom: 12px;
 }
 
-/* form div {
-    margin-top: 15px;
-} */
+button[type="submit"] {
+    background-color: rgba(0, 0, 255, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 16px;
+    padding: 4px 8px;
+    border: 0;
+    margin-top: 16px;
+}
 
 #squares-div {
     display: flex;
     flex-flow: row wrap;
-    margin: 0 auto;
-    width: 90%;
+    margin: 40px 10px 40px 40px;
+}
+
+.background-square {
+    width: 250px;
+    height: 250px;
+    background-color: rgba(255, 255, 255, 1);
 }
 
 .square {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
     padding: 5px;
     border: 5px solid;
     display: flex;
@@ -34,16 +72,48 @@ h3 {
 }
 
 img {
-    width: 160px;
+    width: 200px;
     height: auto;
 }
 
-form {
-    margin: 40px;
-}
+/* .colorButton colors and gradient 
+from https://cssgradientbutton.com/?bg0=FFFFFF&bg1=CFCFCF&bg2=EEEEEE&bg3=C7C7C7&r=42&p_top=5&p_right=15&p_bottom=5&p_left=15&w_auto=yes&w=150&text_c=000000&textshadow=yes&textshadow_c=FFFFFF&shadow_bt=0&shadow_c=B4B5B5&border_s=1&border_c=999999&border_c_hover=7A7A7A&f_size_auto=no&f_s=12&font=arial,%20helvetica,%20sans-serif&bold=yes&inset=no&s_x=0&s_y=0&s_b=0&t_s_px=1&b_top=1&b_right=1&b_bottom=1&b_left=1&bt_c=999999&br_c=999999&bb_c=999999&bl_c=999999&bhover_top=1&bhover_right=1&bhover_bottom=1&bhover_left=1&bhover_t_c=828282&bhover_r_c=828282&bhover_b_c=828282&bhover_l_c=828282&bh_top=1&br_top=3&br_right=3&br_bottom=3&br_left=3&h_s=-1&v_s=-1&b_s=0&o_s=0.3 */
 
 .colorButton {
     position: absolute;
     top: 0px;
-    border: 1px solid black;
+
+    border:1px solid #999999; 
+    border-radius: 42px; 
+    
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.3);
+    font-size: 14px;
+    font-weight:bold; 
+    color: #000000;
+
+    background-color: #FFFFFF; 
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#CFCFCF));
+    background-image: -webkit-linear-gradient(top, #FFFFFF, #CFCFCF);
+    background-image: -moz-linear-gradient(top, #FFFFFF, #CFCFCF);
+    background-image: -ms-linear-gradient(top, #FFFFFF, #CFCFCF);
+    background-image: -o-linear-gradient(top, #FFFFFF, #CFCFCF);
+    background-image: linear-gradient(to bottom, #FFFFFF, #CFCFCF);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#FFFFFF, endColorstr=#CFCFCF);
+}
+
+.colorButton:hover {
+    border:1px solid #7A7A7A;
+    background-color: #EEEEEE; 
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(#C7C7C7));
+    background-image: -webkit-linear-gradient(top, #EEEEEE, #C7C7C7);
+    background-image: -moz-linear-gradient(top, #EEEEEE, #C7C7C7);
+    background-image: -ms-linear-gradient(top, #EEEEEE, #C7C7C7);
+    background-image: -o-linear-gradient(top, #EEEEEE, #C7C7C7);
+    background-image: linear-gradient(to bottom, #EEEEEE, #C7C7C7);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#EEEEEE, endColorstr=#C7C7C7);
+}
+
+
+@media only screen and (max-width: 876px) {
+    #squares-div {
+        justify-content: center;
+    }
 }
