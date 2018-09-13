@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    font-size: 18px;
 }
 
 *, *:before, *:after {
@@ -20,12 +21,12 @@ body {
 h1 {
     margin: 10px 0 10px 0;
     font-family: 'Pacifico', cursive;
-    font-size: 50px;
+    font-size: 2.8rem;
 }
 
 #form-div {
     margin: 10px 10px 0 40px;
-    font-size: 18px;
+    font-size: 1rem;
 }
 
 #form-div p {
@@ -35,23 +36,49 @@ h1 {
 h3 {
     font-weight: 700;
     color: rgba(0, 0, 255, 1);
-    font-size: 20px;
+    font-size: 1.1rem;
     margin-bottom: 12px;
 }
 
 button[type="submit"] {
     background-color: rgba(0, 0, 255, 1);
     color: rgba(255, 255, 255, 1);
-    font-size: 16px;
+    font-size: 0.9rem;
     padding: 4px 8px;
     border: 0;
     margin-top: 16px;
 }
 
+#click-div {
+    font-weight: 700;
+    margin: 25px 10px 0 40px;
+}
+
+#mural-div {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+#mural-div .background-square {
+    height: 220px;
+    width: 275px;
+    box-shadow: 7px 7px rgba(0, 0, 255, 0.5);
+}
+
+#mural-div .square {
+    border-color:rgba(0, 0, 255, 1) ;
+}
+
+#mural-div img {
+    width: 90%;
+    height: auto;
+}
+
 #squares-div {
     display: flex;
     flex-flow: row wrap;
-    margin: 40px 10px 40px 40px;
+    margin: 15px 10px 40px 40px;
 }
 
 .background-square {
@@ -69,6 +96,7 @@ button[type="submit"] {
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow: hidden;
 }
 
 img {
@@ -113,7 +141,23 @@ from https://cssgradientbutton.com/?bg0=FFFFFF&bg1=CFCFCF&bg2=EEEEEE&bg3=C7C7C7&
 
 
 @media only screen and (max-width: 876px) {
+    #form-div.col-sm-4 {
+        width: 90%;
+    }
+    #mural-div {
+        align-items: center;
+    }
+    #mural-div .background-square {
+        height: 175px;
+        width: 219px;
+    }
     #squares-div {
         justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    #mural-div {
+        display: none;
     }
 }

@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
     <title>Mural</title>
 
@@ -25,12 +26,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-10 col-sm-10" id="form-div">
+            <div class="col-10 col-sm-6 col-md-4" id="form-div">
                 <form method="POST" action="/images">
                     <h3>Add an image</h3>
                     <div class="form-group">
                         <label for="what-is-the-image-src">What is the image's URL?</label>
-                        <input type="text" class="form-control form-control-sm col-sm-4" id="what-is-the-image-src" name="src" required />
+                        <input type="text" class="form-control form-control-sm col-sm-8" id="what-is-the-image-src" name="src" required />
                     </div>
                     <div>
                         <p>What should the image's border color be?</p>
@@ -51,6 +52,18 @@
                         <button class="btn" type="submit">Submit</button>
                     </div>
                 </form>
+            </div>
+            <div class="col-sm-4 col-md-7" id="mural-div">
+                <div class="background-square">
+                    <div class="square">
+                        <img src="https://cdn.pixabay.com/photo/2017/08/05/14/13/wall-2583885_1280.jpg" alt="a colorful mural" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 col-sm-10" id="click-div">
+                <p>Click an image to change its border color</p>
             </div>
         </div>
 
