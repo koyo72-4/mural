@@ -180,3 +180,9 @@ from https://cssgradientbutton.com/?bg0=FFFFFF&bg1=CFCFCF&bg2=EEEEEE&bg3=C7C7C7&
         display: none;
     }
 }
+
+@media only screen and (min-width: 577px) and (max-width: 720px) {
+    #mural-div {
+        margin-top: 15px;
+    }
+}
