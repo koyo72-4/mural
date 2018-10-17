@@ -22,17 +22,25 @@
     <div class="container-fluid" id="container">
         <div class="row">
             <div class="col-12 col-sm-12" id="header-div">
-                <h1>Mural</h1>
+                <h1>Tech Mural</h1>
+                <h2>time capsule of images</h2>
             </div>
         </div>
         <div class="row" id="form-row">
-            <!-- <div class="col-10 col-sm-6 col-md-4" id="form-div"> -->
+            <div id="mobile-mural-div">
+                <div class="background-square">
+                    <div class="square">
+                        <img src="mural.jpg" alt="a colorful mural" />
+                    </div>
+                </div>
+            </div>
             <div id="form-div">
                 <form method="POST" action="/images">
-                    <h3>Add an image</h3>
+                    <p class="instructions">Add an image of your favorite technology to the mural below.</p>
+                    <p class="instructions">Then come back in a few months to admire the tech of the past!</p>
                     <div class="form-group">
-                        <label for="what-is-the-image-src">What is the image's URL?</label>
-                        <input type="text" class="form-control form-control-sm col-sm-8" id="what-is-the-image-src" name="src" required />
+                        <label for="what-is-the-image-src">What is your image's URL?</label>
+                        <input type="text" class="form-control form-control-sm col-sm-10" id="what-is-the-image-src" name="src" required />
                     </div>
                     <div>
                         <p>What should the image's border color be?</p>
@@ -54,7 +62,6 @@
                     </div>
                 </form>
             </div>
-            <!-- <div class="col-sm-4 col-md-7" id="mural-div"> -->
             <div id="mural-div">
                 <div class="background-square">
                     <div class="square">
@@ -64,14 +71,12 @@
             </div>
         </div>
         <div class="row">
-            <!-- <div class="col-10 col-sm-10" id="click-div"> -->
             <div id="click-div">
-                <p>Click an image to change its border color</p>
+                <p>Click an image below to change its border color.</p>
             </div>
         </div>
 
         <div class="row">
-            <!-- <div class="col-12 col-sm-12"> -->
             <div>
                 <div id="squares-div">
                 </div>

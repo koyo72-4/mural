@@ -27,9 +27,15 @@ div.row {
 }
 
 h1 {
-    margin: 10px 0 10px 0;
+    margin: 15px 0 10px 0;
     font-family: 'Pacifico', cursive;
     font-size: 2.8rem;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 #form-row {
@@ -42,21 +48,27 @@ h1 {
             justify-content: space-between;
 }
 
+#mobile-mural-div {
+    display: none;
+}
+
 #form-div {
     padding: 0;
-    margin: 0 20px 0 0;
     font-size: 1rem;
+    max-width: 50%;
 }
 
 #form-div p {
     margin-bottom: 6px;
 }
 
-h3 {
+#form-div p.instructions {
     font-weight: 700;
     color: rgba(0, 0, 255, 1);
     font-size: 1.1rem;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+    line-height: 1.25;
+    max-width: 83%;
 }
 
 button[type="submit"] {
@@ -180,9 +192,12 @@ from https://cssgradientbutton.com/?bg0=FFFFFF&bg1=CFCFCF&bg2=EEEEEE&bg3=C7C7C7&
 }
 
 
-@media only screen and (max-width: 876px) {
-    #form-div.col-sm-4 {
-        width: 90%;
+@media only screen and (max-width: 715px) {
+    #form-div {
+        max-width: 95%;
+    }
+    #form-div p.instructions {
+        max-width: 100%;
     }
     #mural-div {
         -webkit-box-align: center;
@@ -201,8 +216,36 @@ from https://cssgradientbutton.com/?bg0=FFFFFF&bg1=CFCFCF&bg2=EEEEEE&bg3=C7C7C7&
 }
 
 @media only screen and (max-width: 576px) {
+    #mobile-mural-div {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        margin-bottom: 10px;
+    }
+    #mobile-mural-div .background-square {
+        height: 175px;
+        width: 219px;
+        box-shadow: 7px 7px rgba(0, 0, 255, 0.5);
+        margin-right: 7px;
+    }
+    #mobile-mural-div .square {
+        border-color:rgba(0, 0, 255, 1) ;
+    }
+    #mobile-mural-div img {
+        width: 95%;
+        height: auto;
+    }
     #mural-div {
         display: none;
+    }
+    #click-div {
+        margin-right: 40px;
     }
 }
 
